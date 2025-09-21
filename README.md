@@ -1,70 +1,205 @@
-# Getting Started with Create React App
+# User Authentication System 🔐
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack user authentication system built with React frontend and Express.js backend, featuring JWT authentication, PostgreSQL database, and secure password hashing.
 
-## Available Scripts
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white)
 
-In the project directory, you can run:
+## ✨ Features
 
-### `npm start`
+- **User Registration** - Sign up with name, phone, email, and password
+- **User Login** - Secure authentication with JWT tokens
+- **Protected Routes** - Middleware for authentication verification
+- **Password Hashing** - BCrypt encryption for secure password storage
+- **PostgreSQL Database** - Relational database for user management
+- **React Frontend** - Modern UI with responsive design
+- **RESTful API** - Clean API endpoints for authentication
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Quick Start
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Prerequisites
 
-### `npm test`
+- Node.js (v14 or higher)
+- PostgreSQL (v12 or higher)
+- npm or yarn
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installation
 
-### `npm run build`
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/user-auth-system.git
+   cd user-auth-system
+   Setup Backend
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+bash
+cd backend
+npm install
+Setup Frontend
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+bash
+cd ../frontend
+npm install
+Database Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+sql
+CREATE DATABASE user_auth_db;
+Environment Configuration
 
-### `npm run eject`
+bash
+# Backend .env file (backend/.env)
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=user_auth_db
+DB_USER=your_db_user
+DB_PASSWORD=your_db_password
+JWT_SECRET=your_super_secret_jwt_key
+JWT_EXPIRES_IN=7d
+PORT=4000
+Running the Application
+Start the Backend Server
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+bash
+cd backend
+npm start
+Server will run on http://localhost:4000
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Start the Frontend Development Server
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+bash
+cd frontend
+npm start
+Client will run on http://localhost:3000
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+📁 Project Structure
+text
+user-auth-system/
+├── backend/
+│   ├── config/
+│   │   └── database.js
+│   ├── controllers/
+│   │   └── userController.js
+│   ├── middleware/
+│   │   └── auth.js
+│   ├── models/
+│   │   └── User.js
+│   ├── routes/
+│   │   └── users.js
+│   ├── .env.example
+│   └── server.js
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   └── App.js
+│   └── package.json
+└── README.md
+Example API Requests
+User Registration
 
-## Learn More
+bash
+curl -X POST http://localhost:4000/api/users/signup \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "John Doe",
+    "phone": "1234567890",
+    "email": "john@example.com",
+    "password": "password123"
+  }'
+User Login
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+bash
+curl -X POST http://localhost:4000/api/users/signin \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "john@example.com",
+    "password": "password123"
+  }'
+Get Profile (Protected)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+bash
+curl -X GET http://localhost:4000/api/users/me \
+  -H "Authorization: Bearer YOUR_JWT_TOKEN"
+🎨 Frontend Pages
+Landing Page - Welcome page with Sign Up and Sign In buttons
 
-### Code Splitting
+Sign Up Page - User registration form with validation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Sign In Page - User login form with validation
 
-### Analyzing the Bundle Size
+Home Page - Dashboard showing user profile after login
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+🛡️ Security Features
+JWT token-based authentication
 
-### Making a Progressive Web App
+Password hashing with bcryptjs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+CORS configuration for frontend-backend communication
 
-### Advanced Configuration
+Environment variables for sensitive data
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Input validation and error handling
 
-### Deployment
+🧪 Testing
+Backend Testing with Postman
+Test user registration with new email
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Test registration with existing email (should return error)
 
-### `npm run build` fails to minify
+Test login with correct credentials
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Test login with incorrect credentials (should return error)
+
+Test protected routes with valid token
+
+Test protected routes without/invalid token (should return unauthorized)
+
+Frontend Testing
+Navigate to http://localhost:3000
+
+Test sign up and sign in flows
+
+Verify home page displays user information after login
+
+Test logout functionality
+
+📸 Screenshots
+Sign Up Success	Sign In Success	Home Page
+https://screenshots/signup-success.png	https://screenshots/signin-success.png	https://screenshots/home-screen.png
+🚀 Deployment
+Backend Deployment (Heroku)
+bash
+# Add PostgreSQL addon
+heroku addons:create heroku-postgresql:hobby-dev
+
+# Set environment variables
+heroku config:set JWT_SECRET=your_production_jwt_secret
+heroku config:set NODE_ENV=production
+
+# Deploy
+git push heroku main
+Frontend Deployment (Netlify/Vercel)
+Build the React app: npm run build
+
+Deploy the build folder to your preferred platform
+
+🤝 Contributing
+Fork the project
+
+Create your feature branch (git checkout -b feature/AmazingFeature)
+
+Commit your changes (git commit -m 'Add some AmazingFeature')
+
+Push to the branch (git push origin feature/AmazingFeature)
+
+Open a Pull Request
+
+📝 License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+👨‍💻 Author
+Gautam Vianayk Mahale - GitHub Profile
