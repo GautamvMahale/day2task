@@ -196,8 +196,11 @@ GET /api/users/me
 ## 📸 Screenshots
 
 | Sign Up Success                                    | Sign In Success                                    | Home Page                                    |
-| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------- |
-| ![Sign Up](https://screenshots/signup-success.png) | ![Sign In](https://screenshots/signin-success.png) | ![Home](https://screenshots/home-screen.png) |
+| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------- |<img width="1918" height="956" alt="Screenshot 2025-09-21 081058" src="https://github.com/user-attachments/assets/02a6d0f6-9554-4a29-8ccf-c7c5c6827ae2" />
+<img width="594" height="547" alt="Screenshot 2025-09-21 081122" src="https://github.com/user-attachments/assets/cd15f34e-ce44-4893-a28b-f03e31be5dc4" />
+
+ ||<img width="589" height="811" alt="Screenshot 2025-09-21 081109" src="https://github.com/user-attachments/assets/253c7a93-ee65-4bf2-a59e-b6faa64feb3e" />
+
 
 ---
 
