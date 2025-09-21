@@ -101,29 +101,6 @@ user-auth-system/
 Example API Requests
 User Registration
 
-bash
-curl -X POST http://localhost:4000/api/users/signup \
-  -H "Content-Type: application/json" \
-  -d '{
-    "name": "John Doe",
-    "phone": "1234567890",
-    "email": "john@example.com",
-    "password": "password123"
-  }'
-User Login
-
-bash
-curl -X POST http://localhost:4000/api/users/signin \
-  -H "Content-Type: application/json" \
-  -d '{
-    "email": "john@example.com",
-    "password": "password123"
-  }'
-Get Profile (Protected)
-
-bash
-curl -X GET http://localhost:4000/api/users/me \
-  -H "Authorization: Bearer YOUR_JWT_TOKEN"
 🎨 Frontend Pages
 Landing Page - Welcome page with Sign Up and Sign In buttons
 
